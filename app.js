@@ -71,6 +71,7 @@ function buySprinkles() {
   foundFlavor.quantity++
   console.log(foundFlavor)
     drawCart()
+    drawTotal()
 }
 
 function buyChips() {
@@ -85,13 +86,16 @@ function buyCone() {
   foundFlavor.quantity++
   console.log(foundFlavor)
     drawCart()
+    drawTotal()
 }
 
 function buyBowl() {
   let foundFlavor = containers[1]
   foundFlavor.quantity++
   console.log(foundFlavor)
-    drawCart()
+
+  drawCart()
+  drawTotal()
 }
 
 
@@ -129,6 +133,10 @@ function returnSprinkles() {
     foundFlavor.quantity = 0
   }
   console.log(foundFlavor)
+
+  
+  drawCart()
+  drawTotal()
 }
 
 function returnChips() {
@@ -195,51 +203,78 @@ function drawCart() {
                                       <br>
                                       Qty:${i.quantity} $${total}
                                     </div>`
-                        } else if ( i.quantity > 0 && i.name == "Sprinkles") {
-                          template += `
-                                    <div class="m-1">
-                                      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" height="50px" width="50px" class="rounded-2" alt="Sprinkles">
-                                      <br>
-                                      ${i.name}
-                                      <br>
-                                      Qty:${i.quantity} $${total}
-                                    </div>`
-                        } else if ( i.quantity > 0 && i.name == "Choc Chips") {
-                          template += `
-                                    <div class="m-1">
-                                      <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360" height="50px" width="50px" class="rounded-2" alt="Choc Chips">
-                                      <br>
-                                      ${i.name}
-                                      <br>
-                                      Qty:${i.quantity} $${total}
-                                    </div>`
-                        } else if ( i.quantity > 0 && i.name == "Waffle Cone") {
-                          template += `
-                                    <div class="m-1">
-                                      <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" height="50px" width="50px" class="rounded-2" alt="Waffle Cone">
-                                      <br>
-                                      ${i.name}
-                                      <br>
-                                      Qty:${i.quantity} $${total}
-                                    </div>`
-                        } else if ( i.quantity > 0 && i.name == "Waffle Bowl") {
-                          template += `
-                                    <div class="m-1">
-                                      <img src="http://images.wbmason.com/350/L_JOY66050.jpg" height="50px" width="50px" class="rounded-2" alt="Waffle Bowl">
-                                      <br>
-                                      ${i.name}
-                                      <br>
-                                      Qty:${i.quantity} $${total}
-                                    </div>`
                         }
                       }
                     )
 
-  document.getElementById("cart").innerHTML = template
+
+
+
+  let template2 = ''
+  let totalToppings = 0
+  toppings.forEach(t => {
+      if (t.quantity > 0 && t.name == "Sprinkles") {
+        totalToppings = t.quantity * t.price
+          template2 += `
+                      <div class="m-1">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" height="50px" width="50px" class="rounded-2" alt="Sprinkles">
+                        <br>
+                        ${t.name}
+                        <br>
+                        Qty:${t.quantity} $${totalToppings}
+                      </div>`
+          } else if ( t.quantity > 0 && t.name == "Choc Chips") {
+            template2 += `
+                      <div class="m-1">
+                        <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360" height="50px" width="50px" class="rounded-2" alt="Choc Chips">
+                        <br>
+                        ${t.name}
+                        <br>
+                        Qty:${t.quantity} $${totalToppings}
+                      </div>`
+                    }
+                  }
+                )
+
+
+
+
+
+
+  let template3 = ''
+  let totalContainers = 0
+  containers.forEach(c => {
+    if ( c.quantity > 0 && c.name == "Waffle Cone") {
+      totalContainers = c.quantity * c.price
+      template3 += `
+                    <div class="m-1">
+                      <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" height="50px" width="50px" class="rounded-2" alt="Waffle Cone">
+                      <br>
+                      ${c.name}
+                      <br>
+                      Qty:${c.quantity} $${totalContainers}
+                    </div>`
+        } else if ( c.quantity > 0 && c.name == "Waffle Bowl") {
+          template3 += `
+                    <div class="m-1">
+                      <img src="http://images.wbmason.com/350/L_JOY66050.jpg" height="50px" width="50px" class="rounded-2" alt="Waffle Bowl">
+                      <br>
+                      ${c.name}
+                      <br>
+                      Qty:${c.quantity} $${totalContainers}
+                    </div>
+                    <button onclick="clearCart()" class="btn btn-danger">Clear Cart</button>`
+                  }
+                }
+              )
+
+  document.getElementById("cart").innerHTML = template + template2 + template3
+
   drawTotal()
+  
+console.log("drawing cart")
+
 }
-
-
 
 function drawTotal() {
 
@@ -248,5 +283,21 @@ function drawTotal() {
   console.log(total, 'total');
   document.getElementById('total').innerText = total.toString()
 
+  let totalToppings = 0
+  toppings.forEach(t => t.quantity > 0 ? totalToppings += t.quantity * t.price : totalToppings += 0)
+  console.log(totalToppings, 'totalToppings');
+  document.getElementById('totalToppings').innerText = totalToppings.toString()
+
+  let totalContainers = 0
+  containers.forEach(c => c.quantity > 0 ? totalContainers += c.quantity * c.price : totalContainers += 0)
+  console.log(totalContainers, 'totalContainers');
+  document.getElementById('totalContainers').innerText = totalContainers.toString()
+
 }
 
+
+function clearCart() {
+
+  document.getElementById("cart").innerHTML = ""
+
+}
