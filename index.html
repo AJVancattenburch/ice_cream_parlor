@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Skranji:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <header class="container-fluid">
+
+    <nav class="navbar bg-body-tertiary fixed-top">
+      
+      <a class="navbar-brand" href="#">
+        <img src="nav-logo.jpg" class="nav-logo" alt="Logo">
+      </a>
+      <span>
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+          </a>
+          <div id="cart" class="dropdown-menu cart offcanvas-body">
+
+            <!--JS MENU TEMPLATE-->
+          
+          </div>
+        </div>
+      </span>
+
+      <section>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <h4 class="toggler-font">Flavor Options</h4>
+        </button>
+      </section>
+
+      
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            100% Organic <i class="fa fa-leaf" aria-hidden="true"></i>
+          <hr class="my-1">
+          Homemade Ice Cream</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <section class="offcanvas-body">
+          <div class="row">
+            <div class="col-12 h-100 h-custom" style="background-color: #d2c9ff;">
+              <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                  <div class="col-12">
+                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                      <div class="card-body p-0">
+
+                        <section>
+                          <div class="row g-0">
+                            <div class="col-lg-8">
+                              <div class="p-5">
+                                <div class="d-flex">
+                                  <h1 class="fw-bold mb-0 text-black">Menu</h1>
+                                </div>
+
+                                <hr class="my-4">
+              
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg"
+                                      class="img-fluid rounded-3" alt="Cookie Dough">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Ice Cream</h6>
+                                      <h6 class="text-black mb-3">Cookie Dough</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnCookieDough()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buyCookieDough()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 id="total" class="mb-1">$5.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+              
+                                <hr class="my-4">
+              
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg"
+                                      class="img-fluid rounded-3" alt="Vanilla">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Ice Cream</h6>
+                                      <h6 class="text-black mb-3">Vanilla</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnVanilla()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buyVanilla()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 class="mb-1">$ 5.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+              
+                                <hr class="my-4">
+              
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg"
+                                      class="img-fluid rounded-3" alt="Vanilla">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Ice Cream</h6>
+                                      <h6 class="text-black mb-3">Strawberry</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnStrawberry()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buyStrawberry()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 class="mb-1">$ 5.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+  
+                                <hr class="my-4">
+  
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg"
+                                      class="img-fluid rounded-3" alt="Sprinkles">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Topping</h6>
+                                      <h6 class="text-black mb-3">Sprinkles</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnSprinkles()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buySprinkles()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 class="mb-1">$ 1.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+  
+                                <hr class="my-4">
+  
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360"
+                                      class="img-fluid rounded-3" alt="Choc Chips">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Topping</h6>
+                                      <h6 class="text-black mb-3">Choc Chips</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnChips()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buyChips()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 class="mb-1">$ 2.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+  
+                                <hr class="my-4">
+  
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg"
+                                      class="img-fluid rounded-3" alt="Waffle Cone">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Containers</h6>
+                                      <h6 class="text-black mb-3">Waffle Cone</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnCone()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buyCone()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 class="mb-1">$ 2.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+  
+                                <hr class="my-4">
+  
+                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                  <div class="col-12">
+                                    <img
+                                      src="http://images.wbmason.com/350/L_JOY66050.jpg"
+                                      class="img-fluid rounded-3" alt="Waffle Bowl">
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <h6 class="text-muted mt-2">Container</h6>
+                                      <h6 class="text-black mb-3">Waffle Bowl</h6>
+                                    </div>
+                                    <div class="col-12 d-flex">
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i onclick="returnBowl()" class="fas fa-minus"></i>
+                                      </button>
+                
+                                      <input id="form1" min="0" name="quantity" value="0" type="number"
+                                        class="form-control form-control-sm mb-1" />
+                
+                                      <button class="btn btn-link px-1"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i onclick="buyBowl()" class="fas fa-plus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+        
+                                  <div class="col-12">
+                                    <h6 class="mb-1">$ 4.00</h6>
+                                  </div>
+                                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                  </div>
+                                </div>
+              
+                                <hr class="my-4">
+              
+                                <div class="pt-5">
+                                  <h6 class="mb-0"><a href="#!" class="text-body"><i
+                                        class="fas fa-long-arrow-alt-left me-2" data-bs-dismiss="offcanvas"></i>Back to Gallery</a></h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid bg-img">
+
+    <div>
+      <img src="logo.jpg" class="logo" alt="Logo">
+    </div>
+    
+    <section class="row">
+      <div class="col-4 d-flex align-items-end justify-content-end">
+        <img src="down-arrow.png" class="rotate-arrow img-fluid" alt="Down Arrow">
+      </div>
+      <div class="col-4 candy-font">
+        OUR "SCOOP"
+      </div>
+      <div class="col-4 d-flex align-items-end">
+        <img src="down-arrow.png" class="arrow img-fluid" alt="Down Arrow">
+      </div>
+    </section>
+
+    <section class="row bg-main p-5">
+      <div class="col-12 story p-5 text-center">
+        <h1 class="story-head" style="font-size: 50px;">Ma and Pa's Ice Cream Shop and Creamery</h1>
+
+        <br><br><br><br>
+
+        Welcome to "Ma and Pa's Creamery," the only place on the internet where you can get your hands on the most delectable, organic, and homemade ice cream in the world (okay, maybe just in your neighborhood).
+        <br><br>
+        Our founders, Ma and Pa, have been churning out small-batch, creamy goodness for over three decades. And now, thanks to the wonders of modern technology, you can have their ice cream delivered right to your doorstep!
+        <br><br>
+        But let's be real, we know you're not just here for the ice cream. You're here for the nostalgia, for the simpler times when every town had a "mom and pop" shop. You want to feel like you're supporting a local business, even if you're halfway across the country.
+        <br><br>
+        Well, we're happy to say that you're in the right place. Ma and Pa may be getting up there in years, but they still hand-make every single pint with love and care (and a little bit of elbow grease). And they do it all with the help of their trusty ice cream churn, which has been in the family for generations.
+        <br><br>
+        Thanks for supporting our little corner of the internet. We promise, Ma and Pa won't disappoint (but they might accidentally call you "sweetie" in an email).
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container-fluid">
+
+  </footer>
+
+  <script src="https://kit.fontawesome.com/9893b2f6ff.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
